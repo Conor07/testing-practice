@@ -1,5 +1,5 @@
 import React from "react";
-import TestComponent from "../components/TestComponent";
+import TestComponent from "../components/Counter";
 
 type HomeProps = {};
 
@@ -8,7 +8,7 @@ const Home: React.FC<HomeProps> = ({}) => {
     <div className="HomePage">
       <h1>Home</h1>
 
-      <TestComponent />
+      <TestComponent initialCount={0} />
     </div>
   );
 };
