@@ -19,15 +19,23 @@ const Counter: React.FC<CounterProps> = ({ initialCount }) => {
     <div className="Counter">
       <h2>Count</h2>
 
-      <p data-test-id="count">{count}</p>
+      <p data-testid="count">{count}</p>
 
-      <button onClick={increment}>Increment</button>
+      <button onClick={increment} data-testid="increment">
+        Increment
+      </button>
 
-      <button onClick={decrement}>Decrement</button>
+      <button onClick={decrement} data-testid="decrement">
+        Decrement
+      </button>
 
-      <button onClick={reset}>Reset</button>
+      <button onClick={reset} data-testid="reset">
+        Reset
+      </button>
 
-      <button onClick={switchSigns}>Switch Signs</button>
+      <button onClick={switchSigns} data-testid="switch-signs">
+        Switch Signs
+      </button>
     </div>
   );
 };
