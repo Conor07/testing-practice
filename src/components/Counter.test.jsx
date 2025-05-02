@@ -42,12 +42,18 @@ describe(Counter, () => {
     expect(getByTestId("count")).toHaveTextContent("1");
   });
 
-  // // Version using getByRole:
-  // it("should increment the count", () => {
-  //   const { getByRole } = render(<Counter initialCount={0} />);
-  //   fireEvent.click(getByRole("button", { name: /Increment/i }));
-  //   expect(getByRole("heading", { name: /Count/i })).toHaveTextContent("1");
-  // });
+  // Version using getByRole:
+  it("should increment the count", () => {
+    const { getByRole, getByTestId } = render(<Counter initialCount={0} />);
+
+    const incrementButton = getByRole("button", { name: /Increment/i });
+
+    expect(incrementButton).toHaveTextContent("Increment");
+
+    fireEvent.click(incrementButton);
+
+    expect(getByTestId("count")).toHaveTextContent("1");
+  });
 
   // // Version using getByLabelText:
   // it("should increment the count", () => {
