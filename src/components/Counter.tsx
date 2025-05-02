@@ -17,8 +17,6 @@ const Counter: React.FC<CounterProps> = ({ initialCount }) => {
 
   return (
     <div className="Counter">
-      <h2>Count</h2>
-
       <p data-testid="count">{count}</p>
 
       <button onClick={increment} data-testid="increment">

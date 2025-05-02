@@ -4,17 +4,13 @@ import Counter from "./Counter";
 
 describe(Counter, () => {
   it("should render without crashing", () => {
-    const { getByText } = render(<Counter initialCount={0} />);
-    expect(getByText(/Count/i)).toBeInTheDocument();
+    const { getByTestId } = render(<Counter initialCount={0} />);
+
+    expect(getByTestId("count")).toBeInTheDocument();
   });
 
   // // Inital Count: ------------------
 
-  // // Version using getByText:
-  it("should display the initial count", () => {
-    const { getByText } = render(<Counter initialCount={0} />);
-    expect(getByText(/0/i)).toBeInTheDocument();
-  });
 
   // // Version using data-test-id:
   it("should display the initial count", () => {
