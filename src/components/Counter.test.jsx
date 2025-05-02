@@ -87,14 +87,14 @@ describe(Counter, () => {
   // // Reset: ------------------
 
   it("should reset the count", () => {
-    const { getByText } = render(<Counter initialCount={0} />);
+    const { getByText } = render(<Counter initialCount={50} />);
     fireEvent.click(getByText(/Reset/i));
     expect(getByText(/0/i)).toBeInTheDocument();
   });
 
   // Version using getByTestId:
   it("should reset the count", () => {
-    const { getByTestId } = render(<Counter initialCount={0} />);
+    const { getByTestId } = render(<Counter initialCount={50} />);
     fireEvent.click(getByTestId("reset"));
     expect(getByTestId("count")).toHaveTextContent("0");
   });
