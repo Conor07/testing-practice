@@ -1,10 +1,10 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Home from "./pages/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import CounterPage from "./pages/CounterPage";
 import FormPage from "./pages/FormPage";
+import ShopPage from "./pages/ShopPage";
 
 function App() {
   return (
@@ -14,6 +14,8 @@ function App() {
 
         <a href="/">Home</a>
 
+        <a href="/shop">Shop</a>
+
         <a href="/form">Form</a>
 
         <a href="/counter">Counter</a>
@@ -22,6 +24,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+
+          <Route path="/shop" element={<ShopPage />} />
 
           <Route path="/counter" element={<CounterPage />} />
 
