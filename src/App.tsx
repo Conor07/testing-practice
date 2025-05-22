@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import CounterPage from "./pages/CounterPage";
 import FormPage from "./pages/FormPage";
 import ShopPage from "./pages/ShopPage";
+import ToDoList from "./pages/ToDoListPage";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
 
         <a href="/shop">Shop</a>
 
+        <a href="/todo">To Do List</a>
+
         <a href="/form">Form</a>
 
         <a href="/counter">Counter</a>
@@ -26,6 +29,8 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route path="/shop" element={<ShopPage />} />
+
+          <Route path="/todo" element={<ToDoList />} />
 
           <Route path="/counter" element={<CounterPage />} />
 
