@@ -1,5 +1,7 @@
 module.exports = {
   presets: [
-    ["@babel/preset-env", { targets: { node: "current" } }], // Transpile modern JavaScript
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/preset-typescript",
   ],
 };

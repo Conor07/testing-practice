@@ -30,7 +30,8 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, status, onEdit }) => {
 
   return (
     <div
-      ref={ref} // Attach the ref to the container
+      ref={ref}
+      data-testid={`taskitem-${task.title}`}
       className={`TaskItem ${isEditing ? " Editing" : ""}`}
       style={{
         cursor: isEditing ? "default" : "move", // Change cursor based on editing state

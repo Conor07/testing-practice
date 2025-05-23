@@ -99,6 +99,7 @@ const ToDoList: React.FC<ToDoListProps> = ({}) => {
           ) : (
             <>
               <TaskSection
+                data-testid={`section-toDo`}
                 title="To Do"
                 tasks={tasks.toDo}
                 status="toDo"
@@ -107,6 +108,7 @@ const ToDoList: React.FC<ToDoListProps> = ({}) => {
               />
 
               <TaskSection
+                data-testid={`section-inProgress`}
                 title="In Progress"
                 tasks={tasks.inProgress}
                 status="inProgress"
@@ -115,6 +117,7 @@ const ToDoList: React.FC<ToDoListProps> = ({}) => {
               />
 
               <TaskSection
+                data-testid={`section-completed`}
                 title="Completed"
                 tasks={tasks.completed}
                 status="completed"

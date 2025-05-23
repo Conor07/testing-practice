@@ -1,11 +1,11 @@
 module.exports = {
-  preset: "ts-jest", // Use ts-jest for TypeScript support
-  testEnvironment: "jsdom", // Use jsdom for React testing
+  preset: "ts-jest",
+  testEnvironment: "jsdom",
   transform: {
-    "^.+\\.(js|jsx|ts|tsx)$": "babel-jest", // Use Babel for JavaScript/TypeScript files
+    "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
   },
   transformIgnorePatterns: [
-    "/node_modules/(?!(testing-library)/)", // Transpile @testing-library
+    "/node_modules/(?!(react-dnd|dnd-core|react-dnd-html5-backend|react-dnd-test-backend|@testing-library)/)",
   ],
-  moduleFileExtensions: ["ts", "tsx", "js", "jsx"], // Recognize these file extensions
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
 };

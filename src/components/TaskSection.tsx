@@ -15,12 +15,13 @@ type TaskSectionProps = {
   onEdit: (id: number, updatedTask: Partial<Task>) => void;
 };
 
-const TaskSection: React.FC<TaskSectionProps> = ({
+const TaskSection: React.FC<TaskSectionProps & { "data-testid"?: string }> = ({
   title,
   tasks,
   status,
   moveTask,
   onEdit,
+  "data-testid": dataTestId,
 }) => {
   const ref = useRef<HTMLDivElement>(null); // Create a ref for the drop target
 
@@ -39,6 +40,8 @@ const TaskSection: React.FC<TaskSectionProps> = ({
     <div
       ref={ref} // Use the ref connected to the drop functionality
       className="TaskSection"
+      data-testid={dataTestId || `section-${status}`}
+      style={{ padding: "1rem", border: "1px solid #ccc", minHeight: "100px" }}
     >
       <h2>{title}</h2>
 
