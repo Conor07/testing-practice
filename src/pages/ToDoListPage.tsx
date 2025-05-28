@@ -4,6 +4,9 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import TaskSection from "../components/TaskSection";
 import AddTaskForm from "../components/AddTaskForm";
 
+// NOTE, must use: npm install react-dnd@14 react-dnd-html5-backend@14 react-dnd-test-backend@14
+// Otherwise the npm test errors, any newer version introduces issues and requires not using react-scripts for "test" in package.json
+
 export type Task = {
   id: number;
   title: string;

@@ -3,6 +3,9 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import ToDoList from "./ToDoListPage";
 import "@testing-library/jest-dom";
 
+// NOTE, must use: npm install react-dnd@14 react-dnd-html5-backend@14 react-dnd-test-backend@14
+// Otherwise the npm test errors, any newer version introduces issues and requires not using react-scripts for "test" in package.json
+
 describe("ToDoListPage", () => {
   function renderPage() {
     return render(<ToDoList />);
