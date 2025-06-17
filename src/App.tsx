@@ -6,6 +6,7 @@ import CounterPage from "./pages/CounterPage";
 import FormPage from "./pages/FormPage";
 import ShopPage from "./pages/ShopPage";
 import ToDoList from "./pages/ToDoListPage";
+import ChatPage from "./pages/ChatPage";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
         <a href="/form">Form</a>
 
         <a href="/counter">Counter</a>
+
+        <a href="/chat">Chat</a>
       </nav>
 
       <Router>
@@ -35,6 +38,10 @@ function App() {
           <Route path="/counter" element={<CounterPage />} />
 
           <Route path="/form" element={<FormPage />} />
+
+          <Route path="/chat" element={<ChatPage />} />
+
+          <Route path="*" element={<div>Page Not Found</div>} />
         </Routes>
       </Router>
     </div>

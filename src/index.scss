@@ -398,3 +398,249 @@ code {
     max-height: 180px;
   }
 }
+
+.ChatPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+  row-gap: 10px;
+  width: 100vw;
+
+  .Body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+
+    .Messages {
+      width: 100%;
+      max-height: 400px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+
+      .Message {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    input {
+      width: calc(100% - 22px);
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+
+      &::placeholder {
+        color: #999;
+      }
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+
+      &:disabled {
+        background-color: #999999;
+        pointer-events: none;
+        opacity: 0.4;
+      }
+    }
+
+    .ChatList {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding: 0;
+
+      .Chat {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        row-gap: 10px;
+        background: #fff;
+        border-radius: 4px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        padding: 12px 16px;
+        border: 1px solid #e0e0e0;
+        transition: background 0.2s;
+        cursor: pointer;
+
+        p {
+          margin: 0;
+        }
+
+        .ChatInfo {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          row-gap: 10px;
+          width: 100%;
+        }
+
+        &:hover {
+          background: #f5f7fa;
+        }
+
+        .Name {
+          font-weight: bold;
+          font-size: 16px;
+          flex: 1;
+          color: #222;
+          margin: 0;
+        }
+
+        .LastMessage {
+          color: #666;
+          flex: 2;
+          font-size: 14px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .Time {
+          color: #999;
+          font-size: 12px;
+          min-width: 60px;
+        }
+
+        .UnreadMessages {
+          position: relative;
+          background: #007bff;
+          color: #fff;
+          border-radius: 50%;
+          padding: 2px 10px;
+          font-size: 12px;
+          min-width: 24px;
+          text-align: center;
+          font-weight: bold;
+          min-width: 30px;
+          max-width: 30px;
+          min-height: 30px;
+          max-height: 30px;
+
+          .Number {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+            font-weight: bold;
+            color: #fff;
+            line-height: 30px;
+            min-width: 30px;
+            max-width: 30px;
+            min-height: 30px;
+            max-height: 30px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+
+        .NoNewMessages {
+          color: #bbb;
+          font-size: 12px;
+          font-style: italic;
+        }
+      }
+    }
+
+    .OpenChat {
+      width: 100%;
+      max-width: 600px;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      margin-top: 20px;
+      padding: 24px 20px;
+      min-height: 300px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+
+      .Messages {
+        list-style: none;
+        padding: 0;
+        margin: 24px 0 0 0;
+        max-height: 320px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .Message {
+          display: flex;
+          align-items: flex-end;
+          gap: 10px;
+          background: #f0f4fa;
+          border-radius: 8px;
+          padding: 8px 12px;
+          font-size: 15px;
+          margin-bottom: 4px;
+
+          .Name {
+            font-weight: bold;
+            color: #007bff;
+            margin-right: 6px;
+            font-size: 14px;
+          }
+
+          .Text {
+            color: #222;
+            font-size: 15px;
+            margin-right: 8px;
+          }
+
+          .Timestamp {
+            color: #999;
+            font-size: 12px;
+            margin-left: auto;
+            white-space: nowrap;
+          }
+        }
+      }
+
+      .NoMessages {
+        color: #bbb;
+        font-size: 14px;
+        font-style: italic;
+        margin-top: 24px;
+        text-align: center;
+      }
+
+      .NoChatSelected {
+        color: #bbb;
+        font-size: 16px;
+        font-style: italic;
+        margin: 40px 0;
+        text-align: center;
+      }
+    }
+  }
+}
