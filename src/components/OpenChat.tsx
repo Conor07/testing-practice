@@ -36,7 +36,7 @@ const OpenChat: React.FC<OpenChatProps> = ({
       <button className="CloseButton" onClick={onChatClose}>
         ×
       </button>
-      <h2 className="Name">{chat.name}</h2>
+      <h3 className="NameTitle">{chat.name}</h3>
       <ul className="Messages">
         {chat.messages.length === 0 ? (
           <li className="NoMessages">No messages</li>

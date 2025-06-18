@@ -36,8 +36,26 @@ const TEST_CHATS: Chat[] = [
       },
       {
         id: 2,
-        senderId: "Alice",
+        senderId: "You",
         content: "I'm good, thanks!",
+        timestamp: new Date(now.getTime() - 1000 * 60 * 2).toISOString(), // 2 min ago
+      },
+      {
+        id: 3,
+        senderId: "Alice",
+        content: "One",
+        timestamp: new Date(now.getTime() - 1000 * 60 * 2).toISOString(), // 2 min ago
+      },
+      {
+        id: 4,
+        senderId: "You",
+        content: "Two",
+        timestamp: new Date(now.getTime() - 1000 * 60 * 2).toISOString(), // 2 min ago
+      },
+      {
+        id: 5,
+        senderId: "Alice",
+        content: "Three",
         timestamp: new Date(now.getTime() - 1000 * 60 * 2).toISOString(), // 2 min ago
       },
     ],
@@ -86,6 +104,40 @@ const TEST_CHATS: Chat[] = [
         senderId: "John",
         content: "Great, are you free later this week?",
         timestamp: new Date(now.getTime() - 1000 * 60 * 60 * 23).toISOString(), // 23 hours ago
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: "Jane",
+    lastMessage: "Let's catch up later.",
+    lastMessageTimestamp: new Date(
+      now.getTime() - 1000 * 60 * 60 * 2
+    ).toISOString(), // 2 hours ago
+    unreadCount: 0,
+    messages: [
+      {
+        id: 1,
+        senderId: "Jane",
+        content: "Let's catch up later.",
+        timestamp: new Date(now.getTime() - 1000 * 60 * 60 * 2).toISOString(), // 2 hours ago
+      },
+    ],
+  },
+  {
+    id: 5,
+    name: "Dave",
+    lastMessage: "Let's catch up later.",
+    lastMessageTimestamp: new Date(
+      now.getTime() - 1000 * 60 * 60 * 2
+    ).toISOString(), // 2 hours ago
+    unreadCount: 0,
+    messages: [
+      {
+        id: 1,
+        senderId: "Jane",
+        content: "Let's catch up later.",
+        timestamp: new Date(now.getTime() - 1000 * 60 * 60 * 2).toISOString(), // 2 hours ago
       },
     ],
   },
@@ -190,9 +242,9 @@ const ChatPage: React.FC<ChatPageProps> = ({}) => {
   };
 
   return (
-    <div className="ChatPage">
+    <div className="ChatPage Page">
       <div className="Body">
-        <h2>Chats</h2>
+        <h1>Chats</h1>
 
         <Chats
           chats={chats}

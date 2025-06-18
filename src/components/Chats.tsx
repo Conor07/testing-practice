@@ -28,7 +28,7 @@ const Chats: React.FC<ChatsProps> = ({
           {chats.map((chat) => (
             <li
               key={chat.id}
-              className="Chat"
+              className={`Chat ${openChat?.id === chat.id ? "Open" : ""}`}
               onClick={() => {
                 onChatSelect(chat);
               }}
