@@ -12,11 +12,10 @@ const OpenChat: React.FC<OpenChatProps> = ({
   onChatClose,
   onSendMessage,
 }) => {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState<string>("");
 
-  const handleSend = (e: React.FormEvent) => {
+  const handleSend = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     if (chat && input.trim()) {
       onSendMessage(chat.id, input.trim());
       setInput("");
@@ -25,47 +24,45 @@ const OpenChat: React.FC<OpenChatProps> = ({
 
   if (!chat) {
     return (
-      <div className="OpenChat">
+      <div className="OpenChat" data-testid="open-chat">
         <p className="NoChatSelected">No chat selected</p>
       </div>
     );
   }
 
   return (
-    <div className="OpenChat">
-      <button className="CloseButton" onClick={onChatClose}>
+    <div className="OpenChat" data-testid="open-chat">
+      <button
+        className="CloseButton"
+        data-testid="close-chat"
+        onClick={onChatClose}
+      >
         ×
       </button>
-      <h3 className="NameTitle">{chat.name}</h3>
-      <ul className="Messages">
+      <h2 className="Name" data-testid="open-chat-name">
+        {chat.name}
+      </h2>
+      <ul className="Messages" data-testid="messages-list">
         {chat.messages.length === 0 ? (
-          <li className="NoMessages">No messages</li>
+          <li className="NoMessages" data-testid="no-messages">
+            No messages yet.
+          </li>
         ) : (
-          chat.messages
-            .sort((a, b) => {
-              const aTime = a.timestamp
-                ? new Date(a.timestamp).getTime()
-                : null;
-              const bTime = b.timestamp
-                ? new Date(b.timestamp).getTime()
-                : null;
-
-              if (aTime === null && bTime === null) return 0; // both missing, keep order
-              if (aTime === null) return 1; // a missing, put a after b
-              if (bTime === null) return -1; // b missing, put b after a
-              return aTime - bTime; // both exist, sort by time
-            })
-            .map((msg) => (
-              <li key={msg.id} className="Message">
-                <span className="Name">{msg.senderId}</span>
-                <span className="Text">{msg.content}</span>
-                <span className="Timestamp">
-                  {msg.timestamp
-                    ? new Date(msg.timestamp).toLocaleTimeString()
-                    : ""}
-                </span>
-              </li>
-            ))
+          chat.messages.map((msg) => (
+            <li key={msg.id} className="Message" data-testid="message-item">
+              <span className="Name" data-testid="message-sender">
+                {msg.senderId}
+              </span>
+              <span className="Text" data-testid="message-text">
+                {msg.content}
+              </span>
+              <span className="Timestamp" data-testid="message-timestamp">
+                {msg.timestamp
+                  ? new Date(msg.timestamp).toLocaleTimeString()
+                  : ""}
+              </span>
+            </li>
+          ))
         )}
       </ul>
       <form
@@ -78,11 +75,13 @@ const OpenChat: React.FC<OpenChatProps> = ({
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Type a message..."
+          data-testid="chat-input"
         />
         <button
           className="OpenChatSendButton"
           type="submit"
           disabled={!input.trim()}
+          data-testid="send-button"
         >
           Send
         </button>
