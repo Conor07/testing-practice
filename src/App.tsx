@@ -7,6 +7,8 @@ import FormPage from "./pages/FormPage";
 import ShopPage from "./pages/ShopPage";
 import ToDoList from "./pages/ToDoListPage";
 import ChatPage from "./pages/ChatPage";
+import TranslatorPage from "./pages/TranslatorPage";
+import DictionaryPage from "./pages/DictionaryPage";
 
 function App() {
   return (
@@ -25,6 +27,10 @@ function App() {
         <a href="/counter">Counter</a>
 
         <a href="/chat">Chat</a>
+
+        <a href="/translator">Translator</a>
+
+        <a href="/dictionary">Dictionary</a>
       </nav>
 
       <Router>
@@ -40,6 +46,10 @@ function App() {
           <Route path="/form" element={<FormPage />} />
 
           <Route path="/chat" element={<ChatPage />} />
+
+          <Route path="/translator" element={<TranslatorPage />} />
+
+          <Route path="/dictionary" element={<DictionaryPage />} />
 
           <Route path="*" element={<div>Page Not Found</div>} />
         </Routes>
