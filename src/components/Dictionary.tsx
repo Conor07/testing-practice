@@ -48,8 +48,10 @@ const Dictionary: React.FC = () => {
   const visibleDefinitions = showAll ? definitions : definitions.slice(0, 3);
 
   return (
-    <div>
-      {/* <div>
+    <div className="Dictionary" data-testid="dictionary-root">
+      {/* Language selection (uncomment if needed) */}
+      {/* 
+      <div data-testid="language-select-wrapper">
         <label>
           Language:
           <select
@@ -64,9 +66,11 @@ const Dictionary: React.FC = () => {
             ))}
           </select>
         </label>
-      </div> */}
+      </div>
+      */}
 
       <input
+        className="WordsInput"
         type="text"
         value={word}
         onChange={(e) => setWord(e.target.value)}
@@ -76,21 +80,31 @@ const Dictionary: React.FC = () => {
         onKeyDown={handleKeyDown}
       />
       <button
+        className="LookupButton"
         onClick={handleLookup}
         disabled={!word.trim()}
         data-testid="lookup-btn"
       >
         Lookup
       </button>
-      <div style={{ marginTop: 16 }}>
-        <strong>Definitions:</strong>
-        <ul data-testid="definitions-list">
+      <div
+        className="Definitions"
+        style={{ marginTop: 16 }}
+        data-testid="definitions-root"
+      >
+        <strong className="DefinitionsTitle" data-testid="definitions-title">
+          Definitions:
+        </strong>
+        <ul className="DefinitionsList" data-testid="definitions-list">
           {visibleDefinitions.map((def, idx) => (
-            <li key={idx}>{def}</li>
+            <li className="Definition" key={idx} data-testid="definition-item">
+              {def}
+            </li>
           ))}
         </ul>
         {definitions.length > 3 && !showAll && (
           <button
+            className="ViewMoreButton"
             onClick={() => setShowAll(true)}
             data-testid="view-more-btn"
             style={{ marginTop: 8 }}
@@ -100,6 +114,7 @@ const Dictionary: React.FC = () => {
         )}
         {definitions.length > 3 && showAll && (
           <button
+            className="ViewLessButton"
             onClick={() => setShowAll(false)}
             data-testid="view-less-btn"
             style={{ marginTop: 8 }}
@@ -108,7 +123,11 @@ const Dictionary: React.FC = () => {
           </button>
         )}
         {error && (
-          <div data-testid="error-msg" style={{ color: "red" }}>
+          <div
+            className="Error"
+            data-testid="error-msg"
+            style={{ color: "red" }}
+          >
             {error}
           </div>
         )}
