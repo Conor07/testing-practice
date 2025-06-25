@@ -15,11 +15,13 @@ const Dictionary: React.FC = () => {
   const [definitions, setDefinitions] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleLookup = async () => {
     setError(null);
     setDefinitions([]);
     setShowAll(false);
+    setLoading(true);
     try {
       const response = await axios.get(
         `https://api.dictionaryapi.dev/api/v2/entries/${language}/${word}`
@@ -36,6 +38,7 @@ const Dictionary: React.FC = () => {
     } catch (err: any) {
       setError("No definitions found.");
     }
+    setLoading(false);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -78,11 +81,12 @@ const Dictionary: React.FC = () => {
         data-testid="word-input"
         style={{ margin: "16px 0", width: "200px" }}
         onKeyDown={handleKeyDown}
+        disabled={loading}
       />
       <button
         className="LookupButton"
         onClick={handleLookup}
-        disabled={!word.trim()}
+        disabled={!word.trim() || loading}
         data-testid="lookup-btn"
       >
         Lookup
@@ -95,6 +99,13 @@ const Dictionary: React.FC = () => {
         <strong className="DefinitionsTitle" data-testid="definitions-title">
           Definitions:
         </strong>
+
+        {loading && (
+          <div className="Loading" data-testid="loading-msg">
+            Loading definitions...
+          </div>
+        )}
+
         <ul className="DefinitionsList" data-testid="definitions-list">
           {visibleDefinitions.map((def, idx) => (
             <li className="Definition" key={idx} data-testid="definition-item">
@@ -108,6 +119,7 @@ const Dictionary: React.FC = () => {
             onClick={() => setShowAll(true)}
             data-testid="view-more-btn"
             style={{ marginTop: 8 }}
+            disabled={loading}
           >
             View more
           </button>

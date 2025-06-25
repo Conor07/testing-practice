@@ -5,8 +5,8 @@ import axios from "axios";
 import "@testing-library/jest-dom";
 
 jest.mock("axios");
-// const mockedAxios = axios as jest.Mocked<typeof axios>;
 const mockedAxios = axios;
+// const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe("Dictionary", () => {
   beforeEach(() => {
@@ -71,6 +71,34 @@ describe("Dictionary", () => {
     fireEvent.click(screen.getByTestId("lookup-btn"));
     expect(await screen.findByText("First definition.")).toBeInTheDocument();
     expect(await screen.findByText("Second definition.")).toBeInTheDocument();
+  });
+
+  test("shows loading message when calling the api", async () => {
+    let resolvePromise;
+    mockedAxios.get.mockImplementationOnce(
+      () =>
+        new Promise((resolve) => {
+          resolvePromise = resolve;
+        })
+    );
+    render(<Dictionary />);
+    fireEvent.change(screen.getByTestId("word-input"), { target: { value: "cat" } });
+    fireEvent.click(screen.getByTestId("lookup-btn"));
+    expect(screen.getByText(/loading/i)).toBeInTheDocument();
+    // Finish the API call
+    resolvePromise({
+      data: [
+        {
+          meanings: [
+            {
+              definitions: [{ definition: "A small domesticated carnivorous mammal." }]
+            }
+          ]
+        }
+      ]
+    });
+    // Wait for loading to disappear and result to show
+    expect(await screen.findByText("A small domesticated carnivorous mammal.")).toBeInTheDocument();
   });
 
   test("searching for a word that doesn't exist displays an error", async () => {
@@ -158,4 +186,6 @@ describe("Dictionary", () => {
     fireEvent.click(screen.getByTestId("view-less-btn"));
     expect(screen.getByTestId("view-more-btn")).toBeInTheDocument();
   });
+
+
 });
