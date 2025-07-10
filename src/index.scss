@@ -775,3 +775,95 @@ code {
     }
   }
 }
+
+.MultiChoiceGamePage {
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    margin: 5px;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+
+    &:disabled {
+      background-color: #999999;
+      pointer-events: none;
+    }
+  }
+
+  .OptionsList {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+    width: 100%;
+    min-width: 300px;
+
+    .OptionButton {
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: center;
+      margin: 5px;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+
+      &:disabled {
+        background-color: #999999;
+        pointer-events: none;
+      }
+    }
+
+    .QuestionResult {
+      margin-top: 8px;
+      text-align: center;
+
+      .CorrectFeedback {
+        color: green;
+      }
+
+      .IncorrectFeedback {
+        color: red;
+      }
+    }
+  }
+
+  .NewHighScoreMessage {
+    margin-top: 10px;
+    padding: 10px;
+    color: #000;
+    font-weight: bold;
+    border: 2px solid #ffd500;
+    border-radius: 3px;
+    border-radius: 8;
+    background: #ffd500;
+  }
+
+  .PreviousScores {
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 5px;
+        font-size: 14px;
+        color: #333;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

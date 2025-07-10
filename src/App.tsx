@@ -9,6 +9,7 @@ import ToDoList from "./pages/ToDoListPage";
 import ChatPage from "./pages/ChatPage";
 import TranslatorPage from "./pages/TranslatorPage";
 import DictionaryPage from "./pages/DictionaryPage";
+import MultiChoiceGamePage from "./pages/MultiChoiceGamePage";
 
 function App() {
   return (
@@ -31,6 +32,8 @@ function App() {
         <a href="/translator">Translator</a>
 
         <a href="/dictionary">Dictionary</a>
+
+        <a href="/multichoicegame">Multi Choice Game</a>
       </nav>
 
       <Router>
@@ -50,6 +53,8 @@ function App() {
           <Route path="/translator" element={<TranslatorPage />} />
 
           <Route path="/dictionary" element={<DictionaryPage />} />
+
+          <Route path="/multichoicegame" element={<MultiChoiceGamePage />} />
 
           <Route path="*" element={<div>Page Not Found</div>} />
         </Routes>
