@@ -18,25 +18,27 @@ function App() {
       <nav className="MainNav">
         <h1>Testing Practice</h1>
 
-        <a href="/">Home</a>
+        <div className="Pages">
+          <a href="/">Home</a>
 
-        <a href="/shop">Shop</a>
+          <a href="/shop">Shop</a>
 
-        <a href="/todo">To Do List</a>
+          <a href="/todo">To Do List</a>
 
-        <a href="/form">Form</a>
+          <a href="/form">Form</a>
 
-        <a href="/counter">Counter</a>
+          <a href="/counter">Counter</a>
 
-        <a href="/chat">Chat</a>
+          <a href="/chat">Chat</a>
 
-        <a href="/translator">Translator</a>
+          <a href="/translator">Translator</a>
 
-        <a href="/dictionary">Dictionary</a>
+          <a href="/dictionary">Dictionary</a>
 
-        <a href="/multichoicegame">Multi Choice Game</a>
+          <a href="/multichoicegame">Multi Choice Game</a>
 
-        <a href="/leaderboard">Leaderboard</a>
+          <a href="/leaderboard">Leaderboard</a>
+        </div>
       </nav>
 
       <Router>

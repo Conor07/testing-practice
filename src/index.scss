@@ -26,6 +26,18 @@ code {
   min-height: 50px;
   max-height: 10dvh;
 
+  .Pages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
   a {
     color: white;
     text-decoration: none;
