@@ -1,0 +1,29 @@
+@media screen and (max-width: 900px) {
+  .MainNav {
+    display: grid;
+    justify-content: center;
+    height: 15dvh;
+    min-height: 15dvh;
+    max-height: 15dvh;
+
+    h1 {
+      grid-row: 1;
+      width: 100%;
+      grid-column: 1 / -1;
+      text-align: center;
+    }
+
+    a {
+      grid-row: 2;
+      grid-column: 1 / -1;
+      text-align: center;
+      row-gap: 10px;
+    }
+  }
+
+  .Page {
+    height: 85dvh;
+    min-height: 85dvh;
+    max-height: 85dvh;
+  }
+}
